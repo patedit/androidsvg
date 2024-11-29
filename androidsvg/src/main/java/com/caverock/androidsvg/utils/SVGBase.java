@@ -1148,7 +1148,7 @@ public class SVGBase
 
    public static class Colour extends SvgPaint
    {
-      final int colour;
+      public final int colour;
       
       static final Colour BLACK = new Colour(0xff000000);  // Black singleton - a common default value.
       static final Colour TRANSPARENT = new Colour(0);     // Transparent black
@@ -1219,7 +1219,7 @@ public class SVGBase
          this.unit = Unit.px;
       }
 
-      float floatValue()
+      public float floatValue()
       {
          return value;
       }
@@ -1375,11 +1375,11 @@ public class SVGBase
 
 
    // Any object in the tree that corresponds to an SVG element
-   static abstract class SvgElementBase extends SvgObject
+   public static abstract class SvgElementBase extends SvgObject
    {
       String        id = null;
       Boolean       spacePreserve = null;
-      Style         baseStyle = null;   // style defined by explicit style attributes in the element (eg. fill="black")
+      public Style         baseStyle = null;   // style defined by explicit style attributes in the element (eg. fill="black")
       Style         style = null;       // style expressed in a 'style' attribute (eg. style="fill:black")
       List<String>  classNames = null;  // contents of the 'class' attribute
 
@@ -1582,9 +1582,9 @@ public class SVGBase
    }
 
 
-   static class Path extends GraphicsElement
+   public static class Path extends GraphicsElement
    {
-      PathDefinition  d;
+      public PathDefinition  d;
       Float           pathLength;
 
       @Override
@@ -1969,7 +1969,7 @@ public class SVGBase
    // Path definition
 
 
-   interface PathInterface
+   public interface PathInterface
    {
       void  moveTo(float x, float y);
       void  lineTo(float x, float y);
@@ -1980,7 +1980,7 @@ public class SVGBase
    }
 
 
-   static class PathDefinition implements PathInterface
+   public static class PathDefinition implements PathInterface
    {
       private byte[]   commands;
       private int      commandsLength = 0;
@@ -2096,7 +2096,7 @@ public class SVGBase
       }
 
 
-      void enumeratePath(PathInterface handler)
+      public void enumeratePath(PathInterface handler)
       {
          int  coordsPos = 0;
 
@@ -2171,7 +2171,7 @@ public class SVGBase
    }
 
 
-   private List<SvgObject>  getElementsByTagName(String nodeName)
+   public List<SvgObject>  getElementsByTagName(String nodeName)
    {
       List<SvgObject>  result = new ArrayList<>();
 

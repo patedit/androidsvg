@@ -39,16 +39,16 @@ public class  Style implements Cloneable
    FillRule   fillRule;
    Float      fillOpacity;
 
-   SvgPaint   stroke;
+   public SvgPaint   stroke;
    Float      strokeOpacity;
-   Length     strokeWidth;
+   public Length     strokeWidth;
    LineCap    strokeLineCap;
    LineJoin   strokeLineJoin;
    Float      strokeMiterLimit;
    Length[]   strokeDashArray;
    Length     strokeDashOffset;
 
-   Float      opacity; // master opacity of both stroke and fill
+   public Float      opacity; // master opacity of both stroke and fill
 
    Colour     color;
 
