@@ -1,10 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 31
+    namespace = "com.caverock.androidsvg"
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
-        minSdkVersion 10
-        targetSdkVersion 31
+        compileSdk 34
+        minSdkVersion 23
+        targetSdkVersion 35
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -25,7 +31,6 @@ android {
     }
 }
 
-apply from: 'publish.gradle'
 
 dependencies {
     androidTestImplementation 'junit:junit:4.13.2'
